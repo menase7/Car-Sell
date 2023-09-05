@@ -5,6 +5,7 @@ import { IoCartSharp } from "react-icons/io5";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState(false);
 
   return (
     <div className="w-full h-[100px]">
@@ -18,6 +19,12 @@ const Header = () => {
             />
           </a>
         </div>
+        { search &&
+          <div className="absolute max-lg:hidden flex z-20 top-[70px] left-[300px] h-[60px] xl:w-[700px] lg:w-[400px] rounded-full bg-gray-100 shadow-2xl border-2 border-[#FF7A00]">
+        <AiOutlineSearch className="text-[40px] ml-4 mt-3 opacity-50" />
+        <input placeholder="Search" type="text" className="w-full rounded-r-full text-2xl pl-2" />
+        </div>
+        }
         <nav className="flex-grow ml-10 max-sm:hidden">
           <ul className="flex flex-grow justify-evenly text-lg font-semibold">
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
@@ -68,7 +75,7 @@ const Header = () => {
           </nav>
         )}
         <div className="flex justify-evenly right-0 items-center gap-5 max-lg:hidden">
-          <AiOutlineSearch className="text-[35px] cursor-pointer" />
+          <AiOutlineSearch onClick={()=>(setSearch(!search))} className="text-[35px] cursor-pointer" />
           <div className="orderbtn hover:text-white hover:bg-[#FF7A00] duration-500 cursor-pointer text-lg font-semibold text-[#FF7A00] border-[#FF7A00] border-[1px] h-[40px] w-[150px] rounded-xl text-center items-center justify-center flex ">
             order now
           </div>
