@@ -22,7 +22,7 @@ const Header = () => {
         { search &&
           <div className="absolute max-lg:hidden flex z-20 top-[70px] left-[300px] h-[60px] xl:w-[700px] lg:w-[400px] rounded-full bg-gray-100 shadow-2xl border-2 border-[#FF7A00]">
         <AiOutlineSearch className="text-[40px] ml-4 mt-3 opacity-50" />
-        <input placeholder="Search" type="text" className="w-full rounded-r-full text-2xl pl-2" />
+        <input placeholder="Search" type="text" className="w-full outline-none rounded-r-full text-2xl pl-2" />
         </div>
         }
         <nav className="flex-grow ml-10 max-sm:hidden">
