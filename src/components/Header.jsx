@@ -8,11 +8,6 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
 
-  const isSectionActive = (match, location) => {
-  const activeSections =['#Main', '#About', '#Cars', '#Services', '#Contact'];
-
-  return activeSections.includes(location.hash);
-  };
 
   return (
     <div className="w-full h-[100px] fixed top-0 left-0 bg-white z-10">
@@ -35,19 +30,19 @@ const Header = () => {
         <nav className="flex-grow ml-10 max-sm:hidden">
           <ul className="flex flex-grow justify-evenly text-lg font-semibold">
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" exact to="/#Main" >HOME</NavHashLink> 
+              <NavHashLink smooth activeClassName="active" exact to="/#Main" >HOME</NavHashLink> 
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#About" >ABOUT</NavHashLink>
+              <NavHashLink smooth activeClassName="active" to="/#About" >ABOUT</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Cars" >CARS</NavHashLink>
+              <NavHashLink smooth activeClassName="active" to="/#Cars" >CARS</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Services" >SERVICES</NavHashLink>
+              <NavHashLink smooth activeClassName="active" to="/#Services" >SERVICES</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Contact" >CONTACT</NavHashLink>
+              <NavHashLink smooth activeClassName="active" to="/#Contact" >CONTACT</NavHashLink>
             </li>
           </ul>
         </nav>

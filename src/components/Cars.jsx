@@ -3,6 +3,14 @@ import card1 from '../assets/2021 Ford F-150 Gray Off-Road Build.jpeg'
 import card2 from '../assets/Addition Of Hyundai Tucson To The Fleet Of Hyundai In Pakistan In 2020 - Fairwheels_com.jpeg'
 import card3 from '../assets/Ford Raptor.jpeg'
 import card4 from '../assets/BMW M850i Rendered in Widebody Guise, Looks Enticing.jpeg'
+import card5 from '../assets/BMW Hypercar.jpeg'
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {Navigation, Pagination, Scrollbar, A11y, Autoplay} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import CarCard from './CarCard';
 
 
 const Cars = () => {
@@ -41,38 +49,48 @@ const Cars = () => {
           </div>
         </div>
         <div className='mt-10 flex gap-4 overflow-auto'>
-          <div className='card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2'>
-            <div className=''><img className='h-52 w-full object-cover rounded-t-2xl' src={card1} alt="" /></div>
-            <div className='font-bold'>
-              <p className='ml-6 text-xl'>FORD</p>
-              <p className='ml-6'>$15,000</p>
-            </div>
-            <div className='bg-[#FF7A00] h-8 w-[260px] mx-auto rounded-full text-center text-white font-semibold text-xl'>Add To Cart</div>
-          </div>
-          <div className='card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2'>
-            <div><img className='h-52 w-full object-cover rounded-t-2xl' src={card2} alt="" /></div>
-            <div className='font-bold'>
-              <p className='ml-6 text-xl'>HYUNDAI</p>
-              <p className='ml-6'>$15,000</p>
-            </div>
-            <div className='bg-[#FF7A00] h-8 w-[260px] mx-auto rounded-full text-center text-white font-semibold text-xl'>Add To Cart</div>
-          </div>
-          <div className='card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2'>
-            <div><img className='h-52 w-full object-cover rounded-t-2xl' src={card3} alt="" /></div>
-            <div className='font-bold'>
-              <p className='ml-6 text-xl'>TOYOTA</p>
-              <p className='ml-6'>$15,000</p>
-            </div>
-            <div className='bg-[#FF7A00] h-8 w-[260px] mx-auto rounded-full text-center text-white font-semibold text-xl'>Add To Cart</div>
-          </div>
-          <div className='card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2'>
-            <div><img className='h-52 w-full object-cover rounded-t-2xl' src={card4} alt="" /></div>
-            <div className='font-bold'>
-              <p className='ml-6 text-xl'>LAMBORGHINI</p>
-              <p className='ml-6'>$15,000</p>
-            </div>
-            <div className='bg-[#FF7A00] h-8 w-[260px] mx-auto rounded-full text-center text-white font-semibold text-xl'>Add To Cart</div>
-          </div>
+
+         <Swiper 
+         className='h-[450px] w-full'
+         modules={[Navigation, Pagination, Scrollbar, Autoplay]}
+         loop={true}
+         navigation
+         autoplay={{delay:2000, disableOnInteraction: false}}
+         pagination={{ clickable: true }}
+         breakpoints={{
+          576: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        }
+      }
+         >
+
+          <SwiperSlide className='flex justify-center'>
+           <CarCard name='FORD' price='15,000' img={card1} />
+          </SwiperSlide>
+          <SwiperSlide className='flex justify-center'>
+           <CarCard name='HYUNDAI' price='16,000' img={card2} />
+          </SwiperSlide>
+          <SwiperSlide className='flex justify-center'>
+           <CarCard name='TOYOTA' price='14,000' img={card3} />
+          </SwiperSlide>
+          <SwiperSlide className='flex justify-center'>
+           <CarCard name='LAMBORGHINI' price='16,000' img={card4} />
+          </SwiperSlide>
+          <SwiperSlide className='flex justify-center'>
+           <CarCard name='BMW' price='16,000' img={card5} />
+          </SwiperSlide>
+         </Swiper>
+
         </div>
       </div>
     </div>
