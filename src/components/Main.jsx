@@ -5,9 +5,9 @@ import videobg from '../assets/car.mp4'
 const Main = () => { 
 
   return (
-    <div className='h-full w-full'>
-      <div className='overlay -z-9 absolute bg-[rgba(0,0,0,.6)] w-full h-[757px]'></div>
-      <video className='absolute max-lg:object-cover max-md:object-cover lg:object-cover -z-10 h-[757px]' src={videobg} autoPlay loop muted></video>
+    <div className='h-screen w-full relative'>
+      <div className='overlay -z-9 absolute bg-[rgba(0,0,0,.6)] w-full h-screen'></div>
+      <video className='absolute max-lg:object-cover max-md:object-cover lg:object-cover -z-10 h-full w-full' src={videobg} autoPlay loop muted></video>
       <div className='w-[90%] mx-auto grid lg:grid-cols-2 max-lg:justify-center max-lg:text-center h-full'>
         <div className='left text-white z-0 flex flex-col sm:flex sm:flex-col justify-evenly h-screen'>
           <p className='lg:text-[60px] max-lg:text-[50px] w-[500px] font-semibold'>PERCHASE YOUR <span className='text-[#FF7A00]'>PERFECT</span> CAR</p>

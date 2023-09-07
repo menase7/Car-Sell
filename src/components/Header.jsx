@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/logo.jpg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoCartSharp } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -28,19 +29,19 @@ const Header = () => {
         <nav className="flex-grow ml-10 max-sm:hidden">
           <ul className="flex flex-grow justify-evenly text-lg font-semibold">
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              HOME
+              <NavLink exact to="/#Home" >HOME</NavLink> 
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              ABOUT
+              <NavLink to="/#About" >ABOUT</NavLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              CARS
+              <NavLink to="/#Cars" >CARS</NavLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              SERVICES
+              <NavLink to="/#Services" >SERVICES</NavLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              CONTACT
+              <NavLink to="/#Contact" >CONTACT</NavLink>
             </li>
           </ul>
         </nav>
