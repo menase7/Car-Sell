@@ -5,7 +5,7 @@ import videobg from '../assets/car.mp4'
 const Main = () => { 
 
   return (
-    <div className='h-screen w-full relative'>
+    <div className='h-screen w-full relative mt-[100px]' id='Main'>
       <div className='overlay -z-9 absolute bg-[rgba(0,0,0,.6)] w-full h-screen'></div>
       <video className='absolute max-lg:object-cover max-md:object-cover lg:object-cover -z-10 h-full w-full' src={videobg} autoPlay loop muted></video>
       <div className='w-[90%] mx-auto grid lg:grid-cols-2 max-lg:justify-center max-lg:text-center h-full'>

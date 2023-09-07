@@ -7,7 +7,7 @@ import card4 from '../assets/BMW M850i Rendered in Widebody Guise, Looks Enticin
 
 const Cars = () => {
   return (
-    <div className='h-full relative w-full bg-gray-100 flex'>
+    <div className='h-full relative w-full bg-gray-100 flex' id='Cars'>
       <div className='m-auto w-[90%] h-[90%]'>
         <div className='text-[#FF7A00] font-bold text-[40px]'>BRANDS</div>
         <div className='text-xl font-bold grid xl:grid-cols-7 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 max-sm:grid-cols-3 gap-3'>

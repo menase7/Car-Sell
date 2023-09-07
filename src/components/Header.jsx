@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import logo from "../assets/logo.jpg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoCartSharp } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
 
+  const isSectionActive = (match, location) => {
+  const activeSections =['#Main', '#About', '#Cars', '#Services', '#Contact'];
+
+  return activeSections.includes(location.hash);
+  };
+
   return (
-    <div className="w-full h-[100px]">
+    <div className="w-full h-[100px] fixed top-0 left-0 bg-white z-10">
       <div className="w-[90%] mx-auto h-full flex justify-between items-center">
         <div className="">
           <a href="">
@@ -29,19 +35,19 @@ const Header = () => {
         <nav className="flex-grow ml-10 max-sm:hidden">
           <ul className="flex flex-grow justify-evenly text-lg font-semibold">
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavLink exact to="/#Home" >HOME</NavLink> 
+              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" exact to="/#Main" >HOME</NavHashLink> 
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavLink to="/#About" >ABOUT</NavLink>
+              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#About" >ABOUT</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavLink to="/#Cars" >CARS</NavLink>
+              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Cars" >CARS</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavLink to="/#Services" >SERVICES</NavLink>
+              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Services" >SERVICES</NavHashLink>
             </li>
             <li className="hover:text-[#FF7A00] cursor-pointer duration-300">
-              <NavLink to="/#Contact" >CONTACT</NavLink>
+              <NavHashLink isActive={isSectionActive} activeStyle={{color: 'yellowgreen'}} smooth activeClassName="active" to="/#Contact" >CONTACT</NavHashLink>
             </li>
           </ul>
         </nav>
