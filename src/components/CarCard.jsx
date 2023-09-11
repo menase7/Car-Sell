@@ -2,7 +2,7 @@ import React from "react";
 
 const CarCard = (props) => {
   return (
-    <div className="card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2 my-14 mx-14">
+    <div key={props.id} className="card h-80 w-[300px] rounded-2xl bg-white shadow-xl flex flex-col gap-2 my-14 mx-14">
       <div className="">
         <img
           className="h-52 w-full object-cover rounded-t-2xl"

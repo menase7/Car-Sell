@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Router, Route } from 'react-router-dom';
 import About from './components/About';
 import Cars from './components/Cars';
 import Contact from './components/Contact';
@@ -12,8 +12,19 @@ import Testimonies from './components/Testimonies';
 function App() {
   return (
     <BrowserRouter>
-    <div>
-      <Header />
+    <Header />
+    
+    
+    {/* 
+    
+      
+       
+        <Route path="/about" component={About} />
+        <Route component={NotFound} />
+      
+    </Router>
+     */}
+     
       <Main />
       <About />
       <Cars />
@@ -21,8 +32,8 @@ function App() {
       <Services />
       <Testimonies />
       <Contact />
-      <Footer />
-    </div>
+     
+    <Footer />
     </BrowserRouter>
   );
 }
