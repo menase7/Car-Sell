@@ -14,6 +14,7 @@ const Main = () => {
         initial={{x:150, opacity: 0}}
         whileInView={{x:0, opacity: 1}}
         transition={{duration:0.5, ease: 'easeOut'}}
+        viewport={{once: true}}
          className='left text-white z-0 flex flex-col sm:flex sm:flex-col justify-evenly h-screen'>
           <p className='lg:text-[60px] max-lg:text-[50px] w-[500px] font-semibold'>PERCHASE YOUR <span className='text-[#FF7A00]'>PERFECT</span> CAR</p>
           <div className=''>

@@ -43,20 +43,21 @@ const Footer = () => {
           <div className='bottom-right text-gray-300 flex md:justify-end max-lg:mt-10'>
             <div className='flex gap-5'>
               <p className='text-xl mr-3'>Follow Us: </p>
-              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl'>
+              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl cursor-pointer'>
                 <FaFacebook />
               </div>
-              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl'>
+              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl cursor-pointer'>
                 <FaTwitter />
               </div>
-              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl'>
+              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl cursor-pointer'>
                 <FaLinkedin />
               </div>
-              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl'>
+              <div className='bg-[#FF7A00] h-10 w-10 rounded-full flex justify-center items-center text-2xl cursor-pointer'>
                 <FaInstagram />
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

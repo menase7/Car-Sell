@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import CarCard from './CarCard';
 import { motion } from 'framer-motion';
+import { Caritems } from '../Caritems';
 
 
 const Cars = () => {
@@ -77,22 +78,13 @@ const Cars = () => {
       }
          >
 
-          <SwiperSlide className='flex justify-center'>
-           <CarCard id='1' name='FORD' price='15,000' img={card1} />
-          </SwiperSlide>
-          <SwiperSlide className='flex justify-center'>
-           <CarCard id='2' name='HYUNDAI' price='16,000' img={card2} />
-          </SwiperSlide>
-          <SwiperSlide className='flex justify-center'>
-           <CarCard id='3' name='TOYOTA' price='14,000' img={card3} />
-          </SwiperSlide>
-          <SwiperSlide className='flex justify-center'>
-           <CarCard id='4' name='LAMBORGHINI' price='16,000' img={card4} />
-          </SwiperSlide>
-          <SwiperSlide className='flex justify-center'>
-           <CarCard id='5' name='BMW' price='16,000' img={card5} />
-          </SwiperSlide>
-         </Swiper>
+           { Caritems.map((items) => (
+            <SwiperSlide className='flex justify-center'>
+            <CarCard data={items} />
+            </SwiperSlide>
+           )) }
+          
+        </Swiper>
 
         </div>
       </div>
