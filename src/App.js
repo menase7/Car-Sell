@@ -20,6 +20,7 @@ function App() {
         <Header />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
