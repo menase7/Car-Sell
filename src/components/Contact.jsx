@@ -1,7 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaPhone, FaEnvelope, FaMapMarker } from 'react-icons/fa';
+import axios from 'axios';
 
 const Contact = () => {
+
+  const [formData, setFormData] = useState({
+    contact_name: '',
+    contact_email: '',
+    contact_message: '',
+  });
+
+  const [isMessageSent, setIsMessageSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post('http://localhost:8000/api/contact', formData)
+      .then(response => {
+        // Handle the success response here
+        console.log(response.data);
+        setIsMessageSent(true);
+        setErrorMessage('');
+        setFormData({
+          contact_name: '',
+          contact_email: '',
+          contact_message: '',
+        });
+      })
+      .catch(error => {
+        // Handle any error that occurs during the request
+        console.error(error);
+        setIsMessageSent(false);
+        setErrorMessage('Error: Failed to send message.');
+      });
+  };
+
   return (
     <div className='h-full w-full' id='Contact'>
       <div className='w-[90%] mx-auto h-full flex flex-col gap-20'>
@@ -22,13 +63,16 @@ const Contact = () => {
           </div>
           <div className='right bg-gray-100 flex flex-col'>
             <div className='right-top flex flex-col p-5'>
-              <form action="" className='flex flex-col font-semibold text-xl gap-2'>
+
+            {isMessageSent && <p className='text-green-500'>Message sent successfully!</p>}
+
+              <form onClick={handleSubmit} action="" className='flex flex-col font-semibold text-xl gap-2'>
                 <label htmlFor="name">Name</label>
-                <input placeholder='Menase Debel' className='font-normal outline-none' type="text" name='Name'/>
+                <input placeholder='Menase Debel' className='font-normal outline-none' type="text" name='contact_name' value={formData.contact} onChange={handleChange}/>
                 <label htmlFor="email">Email</label>
-                <input placeholder='menasedebel7@gmail.com' className='font-normal outline-none' type="email" name='email'/>
+                <input placeholder='menasedebel7@gmail.com' className='font-normal outline-none' type="email" name='contact_email' value={formData.contact_email} onChange={handleChange}/>
                 <label htmlFor="message">Message</label>
-                <textarea className='outline-none' name="message" id="" cols="30" rows="4"></textarea>
+                <textarea className='outline-none' name="contact_message" id="" cols="30" rows="4" value={formData.contact_message} onChange={handleChange}></textarea>
                 <div className='btn cursor-pointer text-white h-10 w-60 mt-2 bg-[#FF7A00] text-center py-1 rounded-lg'>
                   <input type="submit" value='Send Message' />
                 </div>

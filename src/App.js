@@ -12,6 +12,9 @@ import Home from "./components/Home";
 import { Switch } from "react-router-dom";
 import Cart from "./components/Cart";
 import { ShopContextProvider } from "./Context/Shop-context";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Forgetpassword from "./components/Forgetpassword";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgetpassword" element={<Forgetpassword />} />
         </Routes>
         <Footer />
       </BrowserRouter>

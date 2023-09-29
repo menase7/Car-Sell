@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../assets/logo.jpg'
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { NavHashLink } from 'react-router-hash-link'
 
 const Footer = () => {
   return (
@@ -30,8 +31,12 @@ const Footer = () => {
               <p>Privacy Policy</p>
             </div>
             <div className='flex flex-col gap-4 ml-14'>
+            <NavHashLink smooth activeClassName="active" to="/register">
               <button className='w-32 h-10 rounded-md bg-[#FF7A00] text-white'>Register</button>
+            </NavHashLink>
+            <NavHashLink smooth activeClassName="active" to="/login">
               <button className='w-32 h-10 rounded-md bg-white border-2 border-[#FF7A00] text-[#FF7A00]'>Log in</button>
+            </NavHashLink>
             </div>
           </div>
         </div>
