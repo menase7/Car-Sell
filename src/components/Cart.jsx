@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Caritems } from '../Caritems';
 import { CartItem } from './Cart-item';
 import { ShopContext } from '../Context/Shop-context';
 import { useNavigate } from 'react-router-dom';
@@ -31,10 +30,23 @@ const Cart = () => {
     }
   };
 
+
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/cars')
+      .then(response => {
+        setCars(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className='p-[10%]'>
       <div className='cartItems grid max-lg:grid-cols-1 lg:grid-cols-2'>
-        {Caritems.map((item) => {
+        {cars.map((item) => {
           if (cartItems[item.id] !== 0) {
             return <CartItem data={item} />;
           }
