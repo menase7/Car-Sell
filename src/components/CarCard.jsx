@@ -17,8 +17,8 @@ const CarCard = (car) => {
       </div>
       <div className="font-bold">
         <p className="ml-6 text-xl">{name}</p>
-        <p className="ml-6">$ <span className="line-through"> {price} </span> </p>
-        <p className="ml-6">${discounted_price}</p>
+        <p className="ml-6"><span className="line-through">{price}</span> birr</p>
+        <p className="ml-6">{discounted_price} birr</p>
       </div>
       <div className="bg-[#FF7A00] h-8 w-[260px] mx-auto rounded-full text-center text-white font-semibold text-xl">
         <button onClick={()=>addToCart(id)}>

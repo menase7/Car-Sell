@@ -11,30 +11,26 @@ const Cart = () => {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const handleCheckout = () => {
-    if (isLoggedIn) {
-      // Send data to the API using axios
-      axios.post('/api/checkout', cartItems)
+      axios
+        .post('/api/checkout', cartItems)
         .then(response => {
           // Handle the response
           console.log(response.data);
-          // Redirect to a success page
-          navigate('/checkout-success');
+          // Redirect to the order page with the necessary data
+          navigate('/order', { totalAmount, cartItems });
         })
         .catch(error => {
           // Handle the error
           console.error(error);
         });
-    } else {
-      // Redirect to the register page
-      navigate('/register');
-    }
+   
   };
-
 
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/cars')
+    axios
+      .get('http://127.0.0.1:8000/api/cars')
       .then(response => {
         setCars(response.data);
       })
@@ -46,7 +42,7 @@ const Cart = () => {
   return (
     <div className='p-[10%]'>
       <div className='cartItems grid max-lg:grid-cols-1 lg:grid-cols-2'>
-        {cars.map((item) => {
+        {cars.map(item => {
           if (cartItems[item.id] !== 0) {
             return <CartItem data={item} />;
           }
@@ -54,12 +50,20 @@ const Cart = () => {
       </div>
       {totalAmount > 0 ? (
         <div className='checkout bg-[#FF7A00] w-[400px] h-[150px] flex flex-col justify-around rounded-2xl mt-10'>
-          <p className='text-white text-center text-xl font-semibold'>Subtotal: ${totalAmount}</p>
+          <p className='text-white text-center text-xl font-semibold'>
+            Subtotal: {totalAmount} birr
+          </p>
           <div className='flex justify-around'>
-            <button className='bg-black text-white rounded-full px-6 py-2 text-xl cursor-pointer' onClick={() => navigate('/')}>
+            <button
+              className='bg-black text-white rounded-full px-6 py-2 text-xl cursor-pointer'
+              onClick={() => navigate('/')}
+            >
               Continue Shopping
             </button>
-            <button className='bg-black text-white rounded-full px-6 py-2 text-xl cursor-pointer' onClick={handleCheckout}>
+            <button
+              className='bg-black text-white rounded-full px-6 py-2 text-xl cursor-pointer'
+              onClick={handleCheckout}
+            >
               Checkout
             </button>
           </div>

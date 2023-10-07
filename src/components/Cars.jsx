@@ -1,9 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import card1 from '../assets/2021 Ford F-150 Gray Off-Road Build.jpeg'
-import card2 from '../assets/Addition Of Hyundai Tucson To The Fleet Of Hyundai In Pakistan In 2020 - Fairwheels_com.jpeg'
-import card3 from '../assets/Ford Raptor.jpeg'
-import card4 from '../assets/BMW M850i Rendered in Widebody Guise, Looks Enticing.jpeg'
-import card5 from '../assets/BMW Hypercar.jpeg'
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation, Pagination, Scrollbar, A11y, Autoplay} from 'swiper/modules';
 import 'swiper/css';
@@ -12,7 +7,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import CarCard from './CarCard';
 import { motion } from 'framer-motion';
-import { Caritems } from '../Caritems';
 import axios from 'axios';
 
 
@@ -67,7 +61,7 @@ const Cars = () => {
          modules={[Navigation, Pagination, Scrollbar, Autoplay]}
          loop={true}
          navigation
-         autoplay={{delay:2000, disableOnInteraction: false}}
+         autoplay={{delay:3000, disableOnInteraction: false}}
          pagination={{ clickable: true }}
          breakpoints={{
           576: {
@@ -87,7 +81,7 @@ const Cars = () => {
          >
 
             {cars.map(car => (
-            <SwiperSlide className='flex justify-center'>
+            <SwiperSlide key={car.id} className='flex justify-center'>
             <CarCard data={car} />
             </SwiperSlide>
            )) }

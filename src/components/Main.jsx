@@ -50,7 +50,11 @@ const Main = () => {
             <p className='text-xl w-[500px]'>{data.home_description}</p>
           </div>
           <div className='flex gap-16'>
-            <button className='btn text-[20px] w-[250px] h-[50px] rounded-lg bg-[#FF7A00]'>Explore More</button>
+            <NavHashLink smooth activeClassName="active" to="/morecars">
+            <button className='btn text-[20px] w-[250px] h-[50px] rounded-lg bg-[#FF7A00]'>
+              Explore More
+            </button>
+            </NavHashLink>
              <NavHashLink smooth activeClassName="active" to="/#Cars">
              <button className='btn text-[20px] w-[250px] h-[50px] rounded-lg border-[#FF7A00] border-[2px]'>
                See Cars

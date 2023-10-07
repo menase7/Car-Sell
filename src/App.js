@@ -16,6 +16,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Forgetpassword from "./components/Forgetpassword";
 import Search from "./components/Search";
+import OrderPage from "./components/OrderPage";
+import Morecars from "./components/Morecars";
 
 function App() {
   return (
@@ -27,9 +29,8 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgetpassword" element={<Forgetpassword />} />
+          <Route path="/morecars" element={<Morecars />} />
+          <Route path="/order" element={<OrderPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

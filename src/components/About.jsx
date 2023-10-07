@@ -27,7 +27,7 @@ const About = () => {
     <div className='w-full h-screen flex flex-shrink' id='About'>
       <div className='my-auto h-[80%] flex-col w-full grid lg:grid-cols-2 bg-white'>
         <div className='w-full h-full object-cover'>
-          <img className='max-lg:h-[300px] h-full w-full object-cover max-md:h-[200px] mx-auto' src={aboutimg} alt="no img" />
+          <img className='max-lg:h-[300px] h-full w-full object-cover max-md:h-[200px] mx-auto' src={data.about_image} alt="no img" />
         </div>
         <div className='flex flex-col justify-between ml-[5%] max-md:mr-[5%] mr-[10%]'>
           <p className='text-[#FF7A00] font-bold text-[40px] max-lg:text-center'>ABOUT US</p>

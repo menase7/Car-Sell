@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaPhone, FaEnvelope, FaMapMarker } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -43,6 +43,28 @@ const Contact = () => {
       });
   };
 
+
+  const [settingData, setSettingData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/setting'); // Replace with your API endpoint
+      setSettingData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  if (settingData.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const data = settingData[0];
+
   return (
     <div className='h-full w-full' id='Contact'>
       <div className='w-[90%] mx-auto h-full flex flex-col gap-20'>
@@ -84,7 +106,7 @@ const Contact = () => {
                  <p className='font-bold'>Phone</p>
                  <FaPhone className='text-[#FF7A00]' />
                 </div>
-                <p>+25194162 0480</p>
+                <p>{data.Company_phone}</p>
               </div>
 
               <div className='bg-white rounded-2xl h-[200px] w-40 flex flex-col text-2xl flex-wrap justify-center items-center'>
@@ -92,7 +114,7 @@ const Contact = () => {
                  <p className='font-bold'>Email</p>
                  <FaEnvelope className='text-[#FF7A00]' />
                 </div>
-                <p>Caropia7@ gmail.com</p>
+                <p>{data.Company_email}</p>
               </div>
 
               <div className='bg-white rounded-2xl h-[200px] w-40 flex flex-col text-2xl flex-wrap justify-center items-center'>
@@ -100,7 +122,7 @@ const Contact = () => {
                  <p className='font-bold'>Address</p>
                  <FaMapMarker className='text-[#FF7A00]' />
                 </div>
-                <p>Addis Ababa, Ethiopia</p>
+                <p>{data.Company_address}</p>
               </div>
               
             </div>

@@ -4,6 +4,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { NavHashLink } from 'react-router-hash-link'
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <div className='lg:h-[300px] max-lg:h-[500px]  w-full bg-black mt-20'>
       <div className='w-[90%] h-full mx-auto flex flex-col justify-around'>
@@ -43,7 +44,7 @@ const Footer = () => {
         <div className='line h-[2px] w-full bg-[#FF7A00]'></div>
         <div className='bottom grid max-lg:grid-cols-1 lg:grid-cols-2'>
           <div className='bottom-left text-gray-300'>
-            <p className='text-xl w-[350px]'>c All rights reserved, 2019. We love our users!</p>
+            <p className='text-xl w-[350px]'>© All rights reserved, {currentYear}. We love our users!</p>
           </div>
           <div className='bottom-right text-gray-300 flex md:justify-end max-lg:mt-10'>
             <div className='flex gap-5'>

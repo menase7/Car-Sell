@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../assets/logo.jpg";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoCartSharp } from "react-icons/io5";
 import { NavHashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import {ShopContext} from '../Context/Shop-context'
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState(false);
+
+  const { cartItems } = useContext(ShopContext);
+
+  // Calculate the total cart amount based on the cartItems
+  const totalAmount = Object.values(cartItems).reduce((total, amount) => total + amount, 0);
 
   return (
     <div className="w-full h-[100px] fixed top-0 left-0 bg-white z-10">
@@ -81,9 +87,11 @@ const Header = () => {
                 CONTACT
               </li>
               <li className="border-[1px] w-full  border-gray-300 py-6 cursor-pointer duration-300 flex justify-evenly">
+              <NavHashLink smooth activeClassName="active" to="/morecars">
                 <div className="orderbtn hover:text-white hover:bg-[#FF7A00] duration-500 cursor-pointer text-lg font-semibold text-[#FF7A00] border-[#FF7A00] border-[1px] h-[40px] w-[150px] rounded-xl text-center items-center justify-center flex ">
                   Order Now
                 </div>
+              </NavHashLink>
                 <IoCartSharp className="text-[40px]" />
                 <div className="h-4 w-4 bg-[#FF7A00] cursor-pointer rounded-full absolute right-[135px] top-18 text-white text-center text-[11px] ">
                   3
@@ -97,15 +105,17 @@ const Header = () => {
             onClick={() => setSearch(!search)}
             className="text-[35px] cursor-pointer"
           />
-          <div className="orderbtn hover:text-white hover:bg-[#FF7A00] duration-500 cursor-pointer text-lg font-semibold text-[#FF7A00] border-[#FF7A00] border-[1px] h-[40px] w-[150px] rounded-xl text-center items-center justify-center flex ">
+          <NavHashLink smooth activeClassName="active" to="/morecars">
+           <div className="orderbtn hover:text-white hover:bg-[#FF7A00] duration-500 cursor-pointer text-lg font-semibold text-[#FF7A00] border-[#FF7A00] border-[1px] h-[40px] w-[150px] rounded-xl text-center items-center justify-center flex ">
             order now
-          </div>
+           </div>
+          </NavHashLink>
           <div className="cursor-pointer">
           <NavHashLink smooth activeClassName="active" to="/Cart">
             <IoCartSharp className="text-[40px]" />
           </NavHashLink>
             <div className="h-4 w-4 bg-[#FF7A00] cursor-pointer rounded-full absolute right-16 top-8 text-white text-center text-[11px] ">
-              3
+            {totalAmount}
             </div>
           </div>
         </div>
